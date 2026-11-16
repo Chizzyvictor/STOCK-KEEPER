@@ -1,0 +1,16 @@
+Options -Indexes
+
+# Keep the bundled/local SQLite database and its journal files off the web.
+<FilesMatch "(?i)^(mysqlitedb\.db(-wal|-shm)?|.*\.(sqlite|sqlite3|db)(-wal|-shm)?)$">
+    Require all denied
+</FilesMatch>
+
+# Setup and migration scripts are CLI-only in PHP as well; deny HTTP access here too.
+<FilesMatch "^(exe|migrate_product_units)\.php$">
+    Require all denied
+</FilesMatch>
+
+# Do not serve environment files or local backups.
+<FilesMatch "(?i)^(\.env.*|.*\.(bak|backup|old|orig|sql))$">
+    Require all denied
+</FilesMatch>

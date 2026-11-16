@@ -1,0 +1,10 @@
+# Local and production database files must not be committed.
+/mysqlitedb.db
+/mysqlitedb.db-wal
+/mysqlitedb.db-shm
+
+# Runtime uploads and local configuration.
+/Images/companyDP/company_*
+/.env
+/.env.*
+/logs/
